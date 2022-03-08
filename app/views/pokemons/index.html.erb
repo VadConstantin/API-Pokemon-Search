@@ -6,7 +6,9 @@
     <ul>
       <li><%= image_tag(@pokemon['sprites']['back_default']) %></li>
       <li><strong> Name: </strong><%= @pokemon['name'].capitalize! %></li>
-      <li><strong> Abilities: </strong><%= @pokemon['abilities'][0]['ability']['name'] %></li>
+      <li><strong> Abilities: </strong><% @pokemon['abilities'].each do |ab| %></li>
+      <li><%= ab['ability']['name']%></li>
+      <% end %>
       <li><strong>Height : </strong><%= @pokemon['height'] %></li>
       <li><strong>Move : </strong><%= @pokemon['moves'][0]['move']['name'].capitalize!  %></li>
     </ul>
