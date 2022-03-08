@@ -1,0 +1,29 @@
+<div class="container">
+  Here's the Pokemon you're looking for:
+  <br>
+
+  <div>
+    <ul>
+      <li><%= image_tag(@pokemon['sprites']['back_default']) %></li>
+      <li><strong> Name: </strong><%= @pokemon['name'].capitalize! %></li>
+      <li><strong> Abilities: </strong><%= @pokemon['abilities'][0]['ability']['name'] %></li>
+      <li><strong>Height : </strong><%= @pokemon['height'] %></li>
+      <li><strong>Move : </strong><%= @pokemon['moves'][0]['move']['name'].capitalize!  %></li>
+    </ul>
+  </div>
+
+<br>
+<br>
+<br>
+Find your Pokemon !
+
+  <%= form_tag pokemons_path, method: :get do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "Find a pokemon"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
